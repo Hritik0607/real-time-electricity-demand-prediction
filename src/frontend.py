@@ -1,5 +1,3 @@
-
-
 import zipfile 
 from datetime import datetime, timedelta
 import requests
@@ -26,7 +24,8 @@ from plot import plot_one_sample
 st.set_page_config(layout="wide")
 
 # title
-current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
+current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H') + timedelta(hours=1)
+
 st.title(f'Electricity Demand Prediction ⚡')
 st.header(f'{current_date} UTC')
 

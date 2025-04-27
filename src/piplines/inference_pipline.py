@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional
 
 import pandas as pd
@@ -76,7 +76,7 @@ if __name__ == '__main__':
     if args.datetime:
         current_date = pd.to_datetime(args.datetime)
     else:
-        current_date = pd.to_datetime(datetime.utcnow()).floor('H')
+        current_date = pd.to_datetime(datetime.utcnow()).floor('H') + timedelta(hours=1)
 
     logger.info(f'Running feature pipeline for {current_date=}')
     inference(current_date)

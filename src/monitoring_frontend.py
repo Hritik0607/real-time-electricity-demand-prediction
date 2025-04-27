@@ -1,6 +1,3 @@
-
-
-from datetime import datetime, timedelta
 from datetime import datetime, timedelta
 
 import numpy as np
@@ -15,7 +12,8 @@ from src.component.monitoring import load_predictions_and_actual_values_from_sto
 st.set_page_config(layout="wide")
 
 # title
-current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
+current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H') - timedelta(hours=1)
+
 st.title(f'Monitoring dashboard 🔎')
 
 progress_bar = st.sidebar.header('⚙️ Working Progress')
