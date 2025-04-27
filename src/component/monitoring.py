@@ -78,7 +78,7 @@ def load_predictions_and_actual_values_from_store(from_date: datetime, to_date: 
     # This uses the predictions' date column (assumed to be named 'date')
     #monitoring_df = monitoring_df[monitoring_df.date.between(from_date, to_date)]
     latest_fv_data = monitoring_fv.get_batch_data().sort_values(by="date", ascending=False).head(5)
-    print("Latest data in Feature View:",   ['date'].max())
+    # print("Latest data in Feature View:", latest_fv_data['date'].max())
 
 
 
