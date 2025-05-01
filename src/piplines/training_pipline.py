@@ -146,7 +146,7 @@ def load_features_and_target(
         features_and_target = pd.read_parquet(local_path_features_and_target)
     else:
         logger.info('Fetching features and targets from the feature store')
-        from_date = pd.to_datetime(date.today() - timedelta(days=52 * 7))
+        from_date = pd.to_datetime(date.today() - timedelta(days=52 * 7 * 2))
         to_date = pd.to_datetime(date.today())
         features_and_target = fetch_features_and_targets_from_store(
             from_date, to_date, step_size=24

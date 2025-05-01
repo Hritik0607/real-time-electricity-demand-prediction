@@ -24,7 +24,7 @@ from plot import plot_one_sample
 st.set_page_config(layout="wide")
 
 # title
-current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H') + timedelta(hours=1)
+current_date = pd.to_datetime(datetime.utcnow(), utc=True).floor('H')
 
 st.title(f'Electricity Demand Prediction ⚡')
 st.header(f'{current_date} UTC')
