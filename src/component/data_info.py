@@ -321,6 +321,8 @@ def fetch_demand_values_from_data_warehouse(from_date: datetime, to_date: dateti
     Simulate production data by sampling historical data from 52 weeks ago (i.e. 1 year),
     adjusted to use a load_full_data function that takes full start_date and end_date as input.
     """
+    from_date = pd.to_datetime(from_date, utc=True)
+    to_date = pd.to_datetime(to_date, utc=True)
     # Calculate historical date range (1 year back)
     from_date_ = from_date - timedelta(days=7*52)
     to_date_ = to_date - timedelta(days=7*52)

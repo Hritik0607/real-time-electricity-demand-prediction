@@ -29,7 +29,7 @@ def run(date: datetime):
     # to the feature_pipeline. This way, if the pipeline fails for some reason,
     # we can still re-write data for that missing hour in a later run.
     fetch_data_from=(date - timedelta(days=28))
-    fetch_data_from = pd.Timestamp(year=fetch_data_from.year, month=fetch_data_from.month, day=1,tz='UTC')
+    # fetch_data_from = pd.Timestamp(year=fetch_data_from.year, month=fetch_data_from.month, day=1,tz='UTC')
     demand_values = fetch_demand_values_from_data_warehouse(
         from_date=fetch_data_from, to_date=date
     )
