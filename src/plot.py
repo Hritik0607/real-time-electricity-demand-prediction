@@ -28,9 +28,9 @@ def plot_one_sample(
         freq='H'
     )
     
-    if current_date:
-        ts_dates = ts_dates[ts_dates <= current_date]
-        ts_values = ts_values[:len(ts_dates)]  # Adjust values according to the truncated dates
+    # if current_date:
+    #     ts_dates = ts_dates[ts_dates <= current_date]
+    #     ts_values = ts_values[:len(ts_dates)]  # Adjust values according to the truncated dates
 
 
     # line plot with past values
@@ -50,7 +50,7 @@ def plot_one_sample(
     if predictions is not None:
         # big red X for the predicted value, if passed
         prediction_ = predictions.iloc[example_id]
-        predicted_time = current_date + timedelta(hours=1)
+        predicted_time = ts_dates[-1] + timedelta(hours=1)
         fig.add_scatter(x=[predicted_time], y=[prediction_],
                         line_color='red',
                         mode='markers', marker_symbol='x', marker_size=15,
