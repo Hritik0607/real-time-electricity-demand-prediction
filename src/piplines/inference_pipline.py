@@ -8,9 +8,9 @@ from retry import retry
 
 from src.component.feature_group_config import FEATURE_GROUP_PREDICTIONS_METADATA, MODEL_NAME
 from src.component.feature_store_api import get_or_create_feature_group
-from src.component.inference import get_model_predictions, load_batch_of_features_from_store
+from src.component.inference import get_model_predictions, load_batch_of_features_from_store, load_model_from_registry
 from src.logger import get_logger
-from src.component.model_registry_api import get_latest_model_from_registry
+# from src.component.model_registry_api import get_latest_model_from_registry
 
 logger = get_logger()
 
@@ -46,7 +46,9 @@ def inference(
     features = load_batch_of_features_from_store(current_date)
 
     logger.info('Loading model from the model registry')
-    model = get_latest_model_from_registry(model_name=MODEL_NAME, status='Production')
+    model = load_model_from_registry()
+
+    # model = get_latest_model_from_registry(model_name=MODEL_NAME, status='Production')
 
     logger.info('Generating predictions')
     predictions = get_model_predictions(model, features)
