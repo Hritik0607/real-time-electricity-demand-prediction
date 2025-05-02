@@ -323,6 +323,7 @@ def fetch_demand_values_from_data_warehouse(from_date: datetime, to_date: dateti
     """
     from_date = pd.to_datetime(from_date, utc=True)
     to_date = pd.to_datetime(to_date, utc=True)
+    
     # Calculate historical date range (1 year back)
     from_date_ = from_date - timedelta(days=7*52)
     to_date_ = to_date - timedelta(days=7*52)
