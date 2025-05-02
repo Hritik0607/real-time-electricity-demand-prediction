@@ -17,6 +17,10 @@ except:
         'Create an .env file on the project root with the HOPSWORKS_PROJECT_NAME and HOPSWORKS_API_KEY'
     )
 
+COMET_ML_API_KEY = 'qefyBvQ3bYHLUUTv5pGxriyfN'
+COMET_ML_WORKSPACE = 'hritik0607'
+COMET_ML_PROJECT_NAME = 'electricity-demand-prediction'
+
 # TODO: remove FEATURE_GROUP_NAME and FEATURE_GROUP_VERSION, and use FEATURE_GROUP_METADATA instead
 FEATURE_GROUP_NAME = 'electricity_demand_feature_group'
 FEATURE_GROUP_VERSION = 1
