@@ -3,12 +3,6 @@ from datetime import datetime, timedelta
 
 import pandas as pd
 
-import sys
-import os
-
-# Add the src directory to the sys.path to be able to import it
-sys.path.append(os.path.abspath(os.path.join(os.getcwd(), "../")))
-
 from src.component import feature_group_config as config
 from src.component.data_info import (
     fetch_demand_values_from_data_warehouse
