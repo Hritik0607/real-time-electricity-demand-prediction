@@ -1,5 +1,3 @@
-
-
 import requests
 import json
 import pandas as pd
@@ -14,6 +12,7 @@ import numpy as np
 import tqdm
 from datetime import datetime
 from typing import Tuple
+from dateutil.relativedelta import relativedelta
 
 
 
@@ -325,8 +324,10 @@ def fetch_demand_values_from_data_warehouse(from_date: datetime, to_date: dateti
     to_date = pd.to_datetime(to_date, utc=True)
     
     # Calculate historical date range (1 year back)
-    from_date_ = from_date - timedelta(days=7*52)
-    to_date_ = to_date - timedelta(days=7*52)
+    # from_date_ = from_date - timedelta(days=7*52)
+    # to_date_ = to_date - timedelta(days=7*52)
+    from_date_ = from_date - relativedelta(years=1)
+    to_date_ = to_date - relativedelta(years=1)
     print(f'Fetching demand values from {from_date} to {to_date}')
 
     # Load data for the historical range using start_date and end_date
