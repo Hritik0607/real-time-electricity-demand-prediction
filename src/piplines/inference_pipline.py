@@ -55,7 +55,7 @@ def inference(
 
     # add `date` and `seconds` columns
     predictions['date'] = current_date
-    predictions['seconds'] = predictions['date'].astype(int) // 10**6
+    # predictions['seconds'] = predictions['date'].astype(int) // 10**6
 
     logger.info('Saving predictions to the feature store')
     save_predictions_to_feature_store(predictions)
