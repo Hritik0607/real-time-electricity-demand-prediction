@@ -10,6 +10,7 @@ def plot_one_sample(
     targets: Optional[pd.Series] = None,
     predictions: Optional[pd.Series] = None,
     display_title: Optional[bool] = True,
+    current_date: Optional[pd.Timestamp] = None, 
 ):
     """"""
     features_ = features.iloc[example_id]
@@ -27,6 +28,11 @@ def plot_one_sample(
         freq='H'
     )
     
+    if current_date:
+        ts_dates = ts_dates[ts_dates <= current_date]
+        ts_values = ts_values[:len(ts_dates)]  # Adjust values according to the truncated dates
+
+
     # line plot with past values
     title = f'demand hour r={features_["date"]}, sub regions={features_["sub_region_code"]}' if display_title else None
     fig = px.line(
@@ -35,15 +41,16 @@ def plot_one_sample(
         markers=True, title=title
     )
     
-    if targets is not None:
-        # green dot for the value we wanna predict
-        fig.add_scatter(x=ts_dates[-1:], y=[target_],
-                        line_color='green',
-                        mode='markers', marker_size=10, name='actual value') 
+    # if targets is not None:
+    #     # green dot for the value we wanna predict
+    #     fig.add_scatter(x=ts_dates[-1:], y=[target_],
+    #                     line_color='green',
+    #                     mode='markers', marker_size=10, name='actual value') 
         
     if predictions is not None:
         # big red X for the predicted value, if passed
         prediction_ = predictions.iloc[example_id]
+        predicted_time = current_date + timedelta(hours=1)
         fig.add_scatter(x=ts_dates[-1:], y=[prediction_],
                         line_color='red',
                         mode='markers', marker_symbol='x', marker_size=15,
