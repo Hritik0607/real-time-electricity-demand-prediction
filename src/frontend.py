@@ -259,6 +259,13 @@ with st.spinner(text="Plotting time-series data"):
     row_indices = np.argsort(predictions_df['predicted_demand'].values)[::-1]
     n_to_plot = 6
 
+    # Check the range of dates in the predictions_df
+    min_date = predictions_df['date'].min()
+    max_date = predictions_df['date'].max()
+
+    print(f"Predictions available from {min_date} to {max_date}")
+
+
     for row_id in row_indices[:n_to_plot]:
         location_id = predictions_df['zone_id'].iloc[row_id]
         location_name = predictions_df['name'].iloc[row_id]
