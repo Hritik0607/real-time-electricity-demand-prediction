@@ -44,7 +44,8 @@ def plot_one_sample(
     if predictions is not None:
         # big red X for the predicted value, if passed
         prediction_ = predictions.iloc[example_id]
-        fig.add_scatter(x=ts_dates[-1:], y=[prediction_],
+        predicted_time = ts_dates[-1] + timedelta(hours=1)
+        fig.add_scatter(x=[predicted_time], y=[prediction_],
                         line_color='red',
                         mode='markers', marker_symbol='x', marker_size=15,
                         name='prediction')             
