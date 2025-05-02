@@ -273,6 +273,7 @@ with st.spinner(text="Plotting time-series data"):
             targets=predictions_df['predicted_demand'],
             predictions=pd.Series(predictions_df['predicted_demand']),
             display_title=False,
+            current_date=current_date
         )
         st.plotly_chart(fig, theme="streamlit", use_container_width=True, width=1000)
         
