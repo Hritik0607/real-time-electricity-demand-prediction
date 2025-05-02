@@ -46,7 +46,7 @@ def plot_one_sample(
         prediction_ = predictions.iloc[example_id]
         predicted_time = ts_dates[-1] + timedelta(hours=1)
         fig.add_scatter(x=[predicted_time], y=[prediction_],
-                        line_color='red',
+                        line_color='blue',
                         mode='markers', marker_symbol='x', marker_size=15,
                         name='prediction')             
     return fig
