@@ -35,11 +35,11 @@ def plot_one_sample(
         markers=True, title=title
     )
     
-    if targets is not None:
-        # green dot for the value we wanna predict
-        fig.add_scatter(x=ts_dates[-1:], y=[target_],
-                        line_color='green',
-                        mode='markers', marker_size=10, name='actual value') 
+    # if targets is not None:
+    #     # green dot for the value we wanna predict
+    #     fig.add_scatter(x=ts_dates[-1:], y=[target_],
+    #                     line_color='green',
+    #                     mode='markers', marker_size=10, name='actual value') 
         
     if predictions is not None:
         # big red X for the predicted value, if passed
