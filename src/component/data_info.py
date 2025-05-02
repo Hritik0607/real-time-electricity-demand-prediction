@@ -334,7 +334,7 @@ def fetch_demand_values_from_data_warehouse(from_date: datetime, to_date: dateti
     demand_values = load_full_data(from_date_, to_date_)
 
     # Ensure the data is within the range (optional redundant check)
-    demand_values = demand_values[(demand_values.date >= from_date_) & (demand_values.date < to_date_)]
+    demand_values = demand_values[(demand_values.date >= from_date_) & (demand_values.date <= to_date_)]
 
     # Shift the data to pretend this is recent data
     demand_values['date'] += timedelta(days=7*52)
