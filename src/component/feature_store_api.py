@@ -34,7 +34,8 @@ def get_feature_store() -> hsfs.feature_store.FeatureStore:
         project=config.HOPSWORKS_PROJECT_NAME,
         api_key_value=config.HOPSWORKS_API_KEY
     )
-    return project.get_feature_store()
+    feature_store_name = f"{config.HOPSWORKS_PROJECT_NAME.lower()}_featurestore"
+    return project.get_feature_store(feature_store_name)
 
 # TODO: remove this function, and use get_or_create_feature_group instead
 def get_feature_group(
